@@ -26,6 +26,9 @@
     "babelify": "*",
     "browserify": "*",
     "budo": "*",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^3.1.0",
+    "eslint-plugin-babel": "^3.0.0",
     "glslify": "*",
     "stripify": "*",
     "uglifyjs": "*"
