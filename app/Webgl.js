@@ -1,6 +1,7 @@
 import THREE from 'three';
 window.THREE = THREE;
 import Cube from './objects/Cube';
+const OrbitControls = require( 'three-orbit-controls' )( THREE );
 
 export default class Webgl {
   constructor( width, height ) {
@@ -14,6 +15,8 @@ export default class Webgl {
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize( width, height );
     this.renderer.setClearColor( 0x262626 );
+
+    this.controls = new OrbitControls( this.camera );
 
     this.composer = null;
 

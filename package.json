@@ -18,7 +18,8 @@
     "dat-gui": "*",
     "gsap": "*",
     "raf": "*",
-    "three": "*"
+    "three": "*",
+    "three-orbit-controls": "^72.0.0"
   },
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "*",
