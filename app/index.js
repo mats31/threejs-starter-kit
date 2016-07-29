@@ -7,25 +7,24 @@ let webgl;
 let gui;
 
 // webgl settings
-webgl = new Webgl(window.innerWidth, window.innerHeight);
-document.body.appendChild(webgl.renderer.domElement);
+webgl = new Webgl( window.innerWidth, window.innerHeight );
+document.body.appendChild( webgl.renderer.domElement );
 
 // GUI settings
 gui = new dat.GUI();
-gui.add(webgl.params, 'usePostprocessing');
-
-// handle resize
-window.addEventListener('resize', resizeHandler);
-
-// let's play !
-animate();
 
 function resizeHandler() {
-  webgl.resize(window.innerWidth, window.innerHeight);
+  webgl.resize( window.innerWidth, window.innerHeight );
 }
 
 function animate() {
-  raf(animate);
+  raf( animate );
 
   webgl.render();
 }
+
+// handle resize
+window.addEventListener( 'resize', resizeHandler );
+
+// let's play !
+animate();

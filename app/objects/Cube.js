@@ -4,14 +4,15 @@ export default class Cube extends THREE.Object3D {
   constructor() {
     super();
 
-    this.geom = new THREE.BoxGeometry(10, 10, 10);
-    this.mat = new THREE.MeshBasicMaterial({
+    this.geometry = new THREE.BoxGeometry( 10, 10, 10 );
+    this.material = new THREE.MeshBasicMaterial({
       color: 0x00ff00,
       wireframe: true,
     });
-    this.mesh = new THREE.Mesh(this.geom, this.mat);
 
-    this.add(this.mesh);
+    this.mesh = new THREE.Mesh( this.geometry, this.material );
+
+    this.add( this.mesh );
   }
 
   update() {
