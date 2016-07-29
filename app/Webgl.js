@@ -16,7 +16,6 @@ export default class Webgl {
     this.renderer.setClearColor( 0x262626 );
 
     this.composer = null;
-    this.initPostprocessing();
 
     this.cube = new Cube();
     this.cube.position.set( 0, 0, 0 );
