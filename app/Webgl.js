@@ -1,5 +1,4 @@
-import THREE from 'three';
-window.THREE = THREE;
+import * as THREE from 'three';
 import Cube from './objects/Cube';
 const OrbitControls = require( 'three-orbit-controls' )( THREE );
 
