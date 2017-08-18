@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:vdaguenet/threejs-starter-kit.git"
+    "url": "git+ssh://git@github.com:mats31/threejs-starter-kit.git"
   },
-  "author": "Valentin Daguenet <valentin.daguenet@gmail.com> (http://vdaguenet.fr)",
+  "author": "Mathis Biabiany <mathis.biabiany@gmail.com> (http://www.mathis-biabiany.fr)",
   "license": "MIT",
   "dependencies": {
     "dat-gui": "^0.5.0",
     "gsap": "^1.19.1",
     "raf": "^3.3.0",
-    "three": "^0.84.0",
+    "three": "^0.87.0",
     "three-orbit-controls": "^82.1.0"
   },
   "devDependencies": {
