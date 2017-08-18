@@ -1,10 +1,5 @@
 import * as THREE from 'three';
-<<<<<<< HEAD
-window.THREE = THREE;
-import Cube from './objects/Cube';
-=======
 import Cube from './objects/Cube/Cube';
->>>>>>> a8fdad5a2870b4008e4104348c587a93b4b6cc4b
 const OrbitControls = require( 'three-orbit-controls' )( THREE );
 
 export default class Webgl {
