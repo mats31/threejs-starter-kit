@@ -1,6 +1,8 @@
+import * as THREE from 'three';
 import randomFloat from 'utils/math/randomFloat';
-import vertexShader from './shaders/instanced.vs';
-import fragmentShader from './shaders/instanced.fs';
+const glsl = require('glslify');
+const vertexShader = glsl.file('./shaders/instanced.vs');
+const fragmentShader = glsl.file('./shaders/instanced.fs');
 
 export default class AbstractInstanced extends THREE.Object3D {
   constructor({

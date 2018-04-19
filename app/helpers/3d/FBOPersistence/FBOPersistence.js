@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import BufferPlane from './BufferPlane';
 
 export default class FBOPersistence {

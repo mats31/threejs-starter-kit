@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 export default class MeshLineGeometry extends THREE.BufferGeometry {
   constructor(geometry, widthCallback = null) {
     super();

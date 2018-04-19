@@ -1,5 +1,7 @@
-import vertexShader from './shaders/bufferPlane.vs';
-import fragmentShader from './shaders/bufferPlane.fs';
+import * as THREE from 'three';
+const glsl = require('glslify');
+const vertexShader = glsl.file('./shaders/bufferPlane.vs');
+const fragmentShader = glsl.file('./shaders/bufferPlane.fs');
 
 export default class BufferPlane extends THREE.Object3D {
   constructor({ height, width, texture, bufferPlaneVertex = vertexShader, bufferPlaneFragment = fragmentShader }) {

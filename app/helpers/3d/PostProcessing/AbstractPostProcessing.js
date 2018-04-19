@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import Signals from 'core/Signals';
 import { autobind } from 'core-decorators';
 import { EffectComposer, RenderPass } from 'postprocessing';

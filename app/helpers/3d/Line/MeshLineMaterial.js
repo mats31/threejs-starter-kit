@@ -1,5 +1,7 @@
-import basicVertex from './shaders/meshLineVertex.vs';
-import basicFragment from './shaders/meshLineFragment.fs';
+import * as THREE from 'three';
+const glsl = require('glslify');
+const basicVertex = glsl.file('./shaders/meshLineVertex.vs');
+const basicFragment = glsl.file('./shaders/meshLineFragment.fs');
 
 export default class MeshLineMaterial extends THREE.RawShaderMaterial {
 
