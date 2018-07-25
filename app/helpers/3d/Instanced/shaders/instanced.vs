@@ -5,35 +5,15 @@ attribute vec4 a_orientation;
 varying vec2 vUv;
 varying float vAlpha;
 
-mat3 quatToMatrix(vec4 q) {
-  mat3 mat;
+mat3 rotAxis(vec3 axis, float a) {
+  float s=sin(a);
+  float c=cos(a);
+  float oc=1.0-c;
+  vec3 as=axis*s;
+  mat3 p=mat3(axis.x*axis,axis.y*axis,axis.z*axis);
+  mat3 q=mat3(c,-as.z,as.y,as.z,c,-as.x,-as.y,as.x,c);
 
-  float sqw = q.w * q.w;
-  float sqx = q.x * q.x;
-  float sqy = q.y * q.y;
-  float sqz = q.z * q.z;
-
-  // invs (inverse square length) is only required if quaternion is not already normalised
-  float invs = 1.0 / (sqx + sqy + sqz + sqw);
-  mat[0][0] = ( sqx - sqy - sqz + sqw) * invs; // since sqw + sqx + sqy + sqz =1/invs*invs
-  mat[1][1] = (-sqx + sqy - sqz + sqw) * invs;
-  mat[2][2] = (-sqx - sqy + sqz + sqw) * invs;
-
-  float tmp1 = q.x * q.y;
-  float tmp2 = q.z * q.w;
-  mat[1][0] = 2.0 * (tmp1 + tmp2) * invs;
-  mat[0][1] = 2.0 * (tmp1 - tmp2) * invs;
-
-  tmp1 = q.x * q.z;
-  tmp2 = q.y * q.w;
-  mat[2][0] = 2.0 * (tmp1 - tmp2) * invs;
-  mat[0][2] = 2.0 * (tmp1 + tmp2) * invs;
-  tmp1 = q.y * q.z;
-  tmp2 = q.x * q.w;
-  mat[2][1] = 2.0 * (tmp1 + tmp2) * invs;
-  mat[1][2] = 2.0 * (tmp1 - tmp2) * invs;
-
-  return mat;
+  return p*oc+q;
 }
 
 void main() {
@@ -42,7 +22,7 @@ void main() {
 
   vec4 orientation = a_orientation;
 
-  mat3 rotation = quatToMatrix(orientation);
+  mat3 rotation = rotAxis(orientation.xyz, orientation.a);
 
   vec4 viewModelPosition = modelViewMatrix * vec4(position * a_scale * rotation + pos, 1.0);
   gl_Position = projectionMatrix * viewModelPosition;
