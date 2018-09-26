@@ -1,5 +1,5 @@
-import vertexShader from './shaders/point.vs';
-import fragmentShader from './shaders/point.fs';
+import * as THREE from 'three';
+const glsl = require('glslify');
 
 export default class Points extends THREE.Object3D {
   constructor() {
@@ -30,8 +30,8 @@ export default class Points extends THREE.Object3D {
     this._material = new THREE.ShaderMaterial({
       transparent: true,
       uniforms: {},
-      vertexShader,
-      fragmentShader,
+      vertexShader: glsl.file('./shaders/point.vs'),
+      fragmentShader: glsl.file('./shaders/point.fs'),
     });
   }
 
