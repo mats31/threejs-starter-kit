@@ -24,6 +24,7 @@
   },
   "rules": {
     "no-unused-vars": 0,
+    "no-param-reassign": 0,
     "no-new": 0,
     "no-new-func": 0,
     "no-console": 0,
