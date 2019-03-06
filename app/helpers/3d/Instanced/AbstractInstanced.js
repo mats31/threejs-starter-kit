@@ -9,6 +9,7 @@ export default class AbstractInstanced extends THREE.Object3D {
     nb = 20,
     geometry = new THREE.PlaneBufferGeometry( 1, 1, 1, 1 ),
     material = false,
+    depthMaterial = false,
     frustumCulled = false,
   } = {}) {
     super();
@@ -24,7 +25,7 @@ export default class AbstractInstanced extends THREE.Object3D {
       this._setupMaterial();
     }
 
-    this._setupMesh();
+    this._setupMesh(depthMaterial);
   }
 
   _setupGeometry() {
@@ -59,9 +60,14 @@ export default class AbstractInstanced extends THREE.Object3D {
     });
   }
 
-  _setupMesh() {
+  _setupMesh(depthMaterial) {
     this._mesh = new THREE.Mesh( this._geometry, this._material );
     this._mesh.frustumCulled = this._frustumCulled;
+
+    if (depthMaterial) {
+      this._mesh.depthMaterial = depthMaterial
+    }
+
     this.add(this._mesh);
   }
 
