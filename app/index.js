@@ -1,17 +1,24 @@
+import * as THREE from 'three'
+import Signals from './core/Signals'
 import Webgl from './Webgl'
+import Stage3d from './core/Stage3d'
 import raf from 'raf'
-import dat from 'dat-gui'
 import 'gsap'
 
 // webgl settings
-const webgl = new Webgl( window.innerWidth, window.innerHeight )
-document.body.appendChild( webgl.renderer.domElement )
+window.Stage3d = new Stage3d({
+  alpha: true,
+  antialias: true,
+  autoClear: true,
+  preserveDrawingBuffer: false,
+  clearColor: 0x000000,
+})
+document.body.appendChild(window.Stage3d.getDOMElement())
 
-// GUI settings
-const gui = window.gui = new dat.GUI()
+const webgl = new Webgl( window.innerWidth, window.innerHeight )
 
 function resizeHandler() {
-  webgl.resize( window.innerWidth, window.innerHeight )
+  Signals.onResize.dispatch()
 }
 
 function animate() {

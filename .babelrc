@@ -1,9 +1,10 @@
 {
-  "presets": ["es2015", "stage-0"],
   "plugins": [
-    "add-module-exports",
-    ["module-resolver", {
-      "root": ["./app"],
-    }]
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ]
   ]
 }

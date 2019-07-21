@@ -1,36 +1,22 @@
 import * as THREE from 'three'
 import Cube from './objects/Cube'
-const OrbitControls = require( 'three-orbit-controls' )( THREE )
+import Lines from './objects/Lines'
 
 export default class Webgl {
   constructor( width, height ) {
-    this.scene = new THREE.Scene()
-
-    this.camera = new THREE.PerspectiveCamera( 50, width / height, 1, 1000 )
-    this.camera.position.z = 100
-
-    this.renderer = new THREE.WebGLRenderer()
-    this.renderer.setSize( width, height )
-    this.renderer.setClearColor( 0x262626 )
-
-    this.controls = new OrbitControls( this.camera )
-
-    this.composer = null
 
     this.cube = new Cube()
-    this.scene.add( this.cube )
-  }
+    // Stage3d.add( this.cube )
 
-  resize( width, height ) {
-    this.camera.aspect = width / height
-    this.camera.updateProjectionMatrix()
-
-    this.renderer.setSize( width, height )
+    this.lines = new Lines()
+    Stage3d.add(this.lines)
   }
 
   render() {
-    this.renderer.render( this.scene, this.camera )
-
     this.cube.update()
+    this.lines.update()
+
+    Stage3d.renderer.setRenderTarget(null)
+    Stage3d.renderer.render(Stage3d.scene, Stage3d.camera)
   }
 }
