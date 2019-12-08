@@ -20,7 +20,7 @@
     "gsap": "^1.19.1",
     "min-signal": "0.0.6",
     "raf": "^3.3.0",
-    "three": "^0.106.2",
+    "three": "^0.111.0",
     "three-orbit-controls": "^82.1.0"
   },
   "devDependencies": {
