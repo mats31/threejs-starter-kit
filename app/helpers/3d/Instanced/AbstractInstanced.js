@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import randomFloat from 'utils/math/randomFloat';
+import { randomFloat } from '../../../utils/math';
 const glsl = require('glslify');
 const vertexShader = glsl.file('./shaders/instanced.vs');
 const fragmentShader = glsl.file('./shaders/instanced.fs');
@@ -36,9 +36,9 @@ export default class AbstractInstanced extends THREE.Object3D {
     this.aScale = new THREE.InstancedBufferAttribute( new Float32Array( this._nb * 3 ), 3 ); // scale
     this.aOrientation = new THREE.InstancedBufferAttribute( new Float32Array( this._nb * 4 ), 4 );
 
-    this._geometry.addAttribute( 'a_pos', this.aPos );
-    this._geometry.addAttribute( 'a_scale', this.aScale );
-    this._geometry.addAttribute( 'a_orientation', this.aOrientation );
+    this._geometry.setAttribute( 'a_pos', this.aPos );
+    this._geometry.setAttribute( 'a_scale', this.aScale );
+    this._geometry.setAttribute( 'a_orientation', this.aOrientation );
 
     for ( let i = 0; i < this._nb; i++) {
 

@@ -10,7 +10,7 @@ export default class Stage3d {
     antialias = false,
     autoClear = true,
     preserveDrawingBuffer = false,
-    clearColor = 0xff0000,
+    clearColor = 0x000000,
   } = {}) {
     this.scenes = [];
     this.renderers = [];
@@ -41,7 +41,7 @@ export default class Stage3d {
     });
     this.renderer.autoClear = autoClear;
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setClearColor(clearColor);
+    this.renderer.setClearColor(clearColor, 1);
     this.renderers.push(this.renderer);
 
     this.time = 0;
@@ -260,8 +260,8 @@ export default class Stage3d {
 
   // Update ---------
 
-  render() {
-    // this.time = this._clock.getElapsedTime()
+  update() {
+    this.time = this._clock.getElapsedTime()
     // this.renderer.render(this.scene, this.camera)
   }
 }

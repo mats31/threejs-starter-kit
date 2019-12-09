@@ -11,11 +11,10 @@ attribute mediump vec2 ID;
 attribute mediump vec2 prevID;
 attribute mediump vec2 nextID;
 attribute lowp float side;
-attribute lowp vec3 color;
+attribute lowp vec3 position; // Color or whatever
 attribute lowp vec2 uv;
 
 uniform lowp vec2 resolution;
-varying lowp vec4 vColor;
 uniform mediump float lineWidth;
 
 vec2 fix( vec4 i, float aspect ) {
@@ -25,8 +24,6 @@ vec2 fix( vec4 i, float aspect ) {
 }
 
 void main() {
-	vColor = vec4(color,1.);
-
 	float aspect = resolution.x / resolution.y;
 
 	mat4 m = projectionMatrix * modelViewMatrix;

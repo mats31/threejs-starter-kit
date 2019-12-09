@@ -13,7 +13,7 @@ export default class MeshLineGPU extends THREE.Mesh {
     number = 10,
     divisions = 10,
     alphaTest = 0.01,
-    lineWidth = 0.1,
+    lineWidth = 1,
     vertexShader = false,
     fragmentShader = false,
     depthVerstexShader,
@@ -76,6 +76,7 @@ export default class MeshLineGPU extends THREE.Mesh {
         resolution: { type: 'v2', value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
         opacity: { type: 'f', value: 1 },
       },
+      side: THREE.DoubleSide,
       // blending:THREE.AdditiveBlending,
       depthTest: true,
       depthWrite: true,
@@ -96,7 +97,7 @@ export default class MeshLineGPU extends THREE.Mesh {
 
     // this.castShadow = true
     // this.receiveShadow = true
-    this.frustumCulled = false
+    this.frustumCulled = true
     this.customDepthMaterial = depthMaterial
 
     this._simulationMaterial = new THREE.ShaderMaterial({
@@ -138,7 +139,14 @@ export default class MeshLineGPU extends THREE.Mesh {
   // Render ------
 
   update() {
-    this.material.uniforms.positions.value = this._fbo.current
     this._fbo.update()
+    this.material.uniforms.positions.value = this._fbo.current
+    if (this.material.uniforms.positions.value) {
+      // console.log(this.material.uniforms.positions.value.needsUpdate = true)
+      // console.log(this._fbo.current)
+    }
+
+
+    // this.material.needsUpdate = true
   }
 }

@@ -33,6 +33,8 @@ export default class FBO {
 
     this._scene.add(this._mesh)
     this.texture = this.simulation.uniforms.t_pos.value
+
+    // this.debug()
   }
 
   // State -------
@@ -75,7 +77,7 @@ export default class FBO {
   // Render ------
 
   update() {
-    Stage3d.renderer.setClearColor(0)
+    Stage3d.renderer.setClearColor(0, 1)
     Stage3d.renderer.setRenderTarget(this.rt)
     Stage3d.renderer.render(this._scene, this._camera)
 
@@ -94,11 +96,10 @@ export default class FBO {
     this.debug2 = new THREE.Mesh(new THREE.PlaneBufferGeometry(2, 2), new THREE.MeshBasicMaterial({ map: this.rt2.texture }))
     this.debug3 = new THREE.Mesh(new THREE.PlaneBufferGeometry(2, 2), new THREE.MeshBasicMaterial({ map: this.rt3.texture }))
 
-    this.debug3.position.z = 90;
 
-
-    // this.debug2.position.x = 2.1
-    // this.debug3.position.x = -2.1
+    this.debug1.position.set(-4, 0, 90)
+    this.debug2.position.set(0, 0, 90)
+    this.debug3.position.set(4, 0, 90)
 
     Stage3d.add(this.debug1)
     Stage3d.add(this.debug2)

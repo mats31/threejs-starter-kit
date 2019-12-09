@@ -23,7 +23,7 @@ export default class Points extends THREE.Object3D {
       positions[i3 + 2] = Math.random() * 50 - 25;
     }
 
-    this._geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
+    this._geometry.setAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
   }
 
   _setupMaterial() {

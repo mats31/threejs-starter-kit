@@ -24,6 +24,8 @@ function resizeHandler() {
 function animate() {
   raf( animate )
 
+  window.Stage3d.update()
+
   webgl.render()
 }
 

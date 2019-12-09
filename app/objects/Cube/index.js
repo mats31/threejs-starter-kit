@@ -24,6 +24,8 @@ export default class Cube extends THREE.Object3D {
   }
 
   update() {
+    this.position.x = Math.sin(Stage3d.time) * 10
+
     this.rotation.x += 0.01
     this.rotation.z += 0.01
   }
